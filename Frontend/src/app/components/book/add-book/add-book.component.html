@@ -16,12 +16,12 @@
 
             <div class="form-group mt-2">
               <label for="years_of_publishing">Years Of Publishing</label>
-              <input type="text" class="form-control" id="years_of_publishing" required [(ngModel)]="book.year_of_publication" name="email"/>
+              <input type="text" class="form-control" id="years_of_publishing" required [(ngModel)]="book.year_of_publication" name="years_of_publishing"/>
             </div>
 
             <div class="form-group mt-2">
-              <label for="author">Book's Author Name</label>
-              <ng-select bindLabel="genre" id="author" name="genre"
+              <label for="authorgenre">Book's Author Name</label>
+              <ng-select bindLabel="name" id="authorgenre" name="authorgenre"
 
                          appendTo="body" [multiple]="true" [(ngModel)]="selected_authors">
                 <ng-option [value]="item" *ngFor="let item of db_authors">
@@ -37,15 +37,15 @@
             </div>
 
             <div class="form-group mt-2">
-              <label for="genre">Book's genres</label>
-              <ng-select bindLabel="genre" id="genre" name="genre"
+                            <label for="genre">Book's genres</label>
+                            <ng-select bindLabel="genre" id="genre" name="genre"
+                                       appendTo="body" [multiple]="true" [(ngModel)]="selected_genres">
+                              <ng-option [value]="item" *ngFor="let item of db_genres">
+                                {{item.name}}
+                              </ng-option>
+                            </ng-select>
+                          </div>
 
-                         appendTo="body" [multiple]="true" [(ngModel)]="selected_genres">
-                <ng-option [value]="item" *ngFor="let item of db_genres">
-                  {{item.name}}
-                </ng-option>
-              </ng-select>
-            </div>
 
             <button (click)="saveBook()" class="btn btn-sm float-end btn-success mt-3"
                     [disabled]="authorForm.invalid"><i

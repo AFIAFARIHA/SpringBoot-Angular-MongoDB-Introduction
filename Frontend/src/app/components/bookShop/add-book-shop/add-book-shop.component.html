@@ -29,15 +29,14 @@
             </div>
 
             <div class="form-group mt-2">
-              <label for="mail">Shop's Mail Address</label>
+              <label for="mail">Mail Address</label>
               <input type="email" class="form-control" id="mail" required [(ngModel)]="bookShop.email" name="age"/>
 
             </div>
 
                         <div class="form-group mt-2">
-                          <label for="genre">Book List</label>
-                          <ng-select bindLabel="book" id="genre" name="genre"
-
+                          <label for="book">Book List</label>
+                          <ng-select bindLabel="book" id="book" name="book"
                                      appendTo="body" [multiple]="true" [(ngModel)]="selected_books">
                             <ng-option [value]="item" *ngFor="let item of db_books">
                               {{item.title}}

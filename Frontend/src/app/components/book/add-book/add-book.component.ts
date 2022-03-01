@@ -28,10 +28,10 @@ export class AddBookComponent implements OnInit {
   book : Book = {
     title : '',
     price: 0,
-    year_of_publication:0,
     author:[],
     genre:[],
-    publisher:''
+    publisher:'',
+    year_of_publication:0
 
   }
 
@@ -41,7 +41,8 @@ export class AddBookComponent implements OnInit {
 
   ngOnInit(): void {
     this.genreService.getAll()
-      .subscribe({
+      .subscribe(
+        {
         next:(data)=>{
           this.db_genres = data;
         },
@@ -49,6 +50,7 @@ export class AddBookComponent implements OnInit {
           console.log(err);
         }
       });
+
     this.authorService.getAll()
       .subscribe(
         {
@@ -69,7 +71,8 @@ export class AddBookComponent implements OnInit {
       price: this.book.price,
       author:this.selected_authors,
       genre:this.selected_genres,
-      publisher:this.book.publisher
+      publisher:this.book.publisher,
+      year_of_publication:this.book.year_of_publication,
     };
 
     this.bookService.create(data)
@@ -91,10 +94,10 @@ export class AddBookComponent implements OnInit {
       this.book = {
         title : '',
         price: 0,
-        year_of_publication:0,
         author:[],
         genre:[],
-        publisher:''
+        publisher:'',
+        year_of_publication:0
   };
       this.selected_authors= [];
       this.selected_genres= [];
